@@ -1,3 +1,7 @@
+/**
+ * A main program for testing the "TestCase" tester.
+ */
+
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -14,7 +18,7 @@ int sqr(int x) {
 	return x*x*x;   // a deliberate bug (it should be: x*x)
 }
 
-int round(double x) { 
+int myround(double x) { 
 	return int(x);  // a deliberate bug (it should be: int(x+0.5)).
 }
 
@@ -28,10 +32,10 @@ int round(double x) {
 struct MyStruct {
 	int num;
 	MyStruct(int num): num(num) {}
-	bool operator==(const MyStruct& other) {
+	bool operator==(const MyStruct& other) const {
 		return false; // a deliberate bug
 	}
-	bool operator!=(const MyStruct& other) {
+	bool operator!=(const MyStruct& other) const {
 		return num!=other.num; // no bug 
 	}
 	int myNum() const { 
@@ -53,8 +57,8 @@ int main() {
 		.check_different(5,6)              // check operator !=. Here there is no bug.
 		.check_function(sqr, 1, 1)         // check a function int->int.     Here there is no bug.
 		.check_function(sqr, 5, 25)        // check a function int->int.    Here there is a bug.
-		.check_function(round, 5.3, 5)     // check a function double->int. Here there is no bug.
-		.check_function(round, 5.8, 6)     // check a function double->int. Here there is a bug.
+		.check_function(myround, 5.3, 5)     // check a function double->int. Here there is no bug.
+		.check_function(myround, 5.8, 6)     // check a function double->int. Here there is a bug.
 		.check_output(5, "5")     // check output operator <<
 		.print();
 

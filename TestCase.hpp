@@ -41,7 +41,7 @@ class TestCase {
         strT1 << t1;
         if(strT1.str() == t2) passed++;
         else{
-            os << caseName << ": " << "Failure in test #" << total << ": " << "string value should be " << t2 << "but is " << strT1.str() << endl;    
+            os << caseName << ": " << "Failure in test #" << total << ": " << "string value should be " << t2 << " but is " << strT1.str() << endl;    
             failed++; 
         }
         return *this;
