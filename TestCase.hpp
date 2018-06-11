@@ -19,7 +19,7 @@ class TestCase {
         total++;
         if(t1 == t2) passed++;
         else {
-            os << caseName << ": " << "Failure in test #" << total << ": " << t1 << " should be equal to " << t2 << "!" << endl;
+            os << caseName << ": " << "Failure in test #" << total << ": " << t1 << " should equal " << t2 << "!" << endl;
             failed++; 
         }
         return *this;
@@ -29,7 +29,7 @@ class TestCase {
         total++;
         if(t1 != t2) passed++;
         else {
-            os << caseName << ": " << "Failure in test #" << total << ": " << t1 << " should be different from " << t2 << "!" << endl;
+            os << caseName << ": " << "Failure in test #" << total << ": " << t1 << " should different " << t2 << "!" << endl;
             failed++; 
         }
         return *this;
