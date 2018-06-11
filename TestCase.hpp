@@ -25,7 +25,7 @@ class TestCase {
         return *this;
     }
     
-    template <typename T> TestCase& check_different(const T t1, const T t2){
+    template <typename T> TestCase& check_different( T t1,  T t2){
         total++;
         if(t1 != t2) passed++;
         else {
@@ -35,7 +35,7 @@ class TestCase {
         return *this;
     }
 
-    template <typename T> TestCase& check_output(const T t1, const string t2){
+    template <typename T> TestCase& check_output( T t1,  string t2){
         total++;
         stringstream strT1;
         strT1 << t1;
@@ -47,7 +47,7 @@ class TestCase {
         return *this;
     }
     
-    template <typename T, typename Function> TestCase& check_function(const Function fun, const T t1, const int t2){
+    template <typename T, typename Function> TestCase& check_function( Function fun,  T t1,  int t2){
         total++;
         if((*fun)(t1) == t2) passed++;
         else {
