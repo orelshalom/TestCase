@@ -15,7 +15,7 @@ class TestCase {
     
     TestCase(string name, ostream& os) : passed(0), failed(0), total(0), caseName(name), os(os){}
 
-    template <typename T> TestCase& check_equal(const T t1, const T t2){
+    template <typename T> TestCase& check_equal( T t1,  T t2){
         total++;
         if(t1 == t2) passed++;
         else {
